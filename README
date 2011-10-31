@@ -1,3 +1,29 @@
 Trabalho para a disciplina de Banco de Dados
 
-teste
+Fluxo de navegação e telas.
+
+HOME
+	Deve ter o login/senha. Se estiver logado, link para a tela/área de USUÁRIO
+	Botao para cadastro. Vai para a tela de CADASTRO
+	Seleção randômica, ou não, de algumas imagens. Vai para a área de IMAGENS
+		
+IMAGENS	
+	Estando logado o USUÁRIO pode fazer as seguintes operações:
+			SUBIR IMAGEM
+			COMENTAR IMAGEM
+				Vai ter uma área abaixo da imagem com os comentários das pessoas no formato igual ao de blogs com usuário que comentou e data do comentário.
+			SUGERIR ATRIBUTOS
+				Pra cada atributo existente na imagem terá uma lista com as cinco mais votadas e um sinal de + e - ao lado dos atributos. Terá um botão sugerindo a sugestão de um atributo.
+				No caso de objetos e pessoas será possivel marca-las arrastando um retângulo em volta deles.
+			VOTAR EM ATRIBUTOS
+				Tera um + e - do lado do atributo onde o usuário poderá votar.
+				
+		Essas opções vão aparecer na área de IMAGENS quando o USUÁRIO estiver logado. Caso contrario, so aparecerá as informações da IMAGEM até então, estatísticas, quem postou a imagem e os comentários.
+	
+USUÁRIO
+	Aqui deve ter o nome do fulano, sua pontuação/premiação, imagens que subiu, imagens em que votou e UPLOAD de imagem.
+	
+UPLOAD
+	Tela para subir imagem. Tera um campo pra subir a imagem, em seguida o usuário pode selecionar a categoria dentre as que já existem ou criar uma nova, além de dar atributos à imagem de uma lista ou criar novos atributos. Após a criação da imagem, será sugerido ao usuário que subiu que faça as primeiras sugestões da imagem.
+	
+>>>>>>> upstream/master
