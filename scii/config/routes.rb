@@ -1,4 +1,12 @@
 Scii::Application.routes.draw do
+  resources :usuarios
+
+  resources :categoria_de_usuarios
+
+  resources :categoria_de_acessos
+
+  resources :coordenadas
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

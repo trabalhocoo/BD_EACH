@@ -27,10 +27,21 @@ USUÁRIO
 	
 UPLOAD
 	Tela para subir imagem. Tera um campo pra subir a imagem, em seguida o usuário pode selecionar a categoria dentre as que já existem ou criar uma nova, além de dar atributos à imagem de uma lista ou criar novos atributos. Após a criação da imagem, será sugerido ao usuário que subiu que faça as primeiras sugestões da imagem.
-	
+
+=== introdução ao rails ===
+http://guides.rubyonrails.org/getting_started.html
+
 === problemas encontrados com rails ===
 rake nao encontrado - http://www.genlinux.org/2008/12/no-such-file-to-load-rake.html
 
 === problemas encontrados com postgresql ===
 setup - https://help.ubuntu.com/community/PostgreSQL
 http://stackoverflow.com/questions/2942485/psql-fatal-ident-authentication-failed-for-user-postgres
+
+	Edit the file /etc/postgresql/<sua-versao>/main/pg_hba.conf and replace "ident" by either "md5" or "trust", depending on whether you want it to ask for a password on your own computer or not. Then restart by:
+
+	# "local" is for Unix domain socket connections only
+	local   all              all               trust
+
+	/etc/init.d/postgresql stop
+	/etc/init.d/postgresql start
