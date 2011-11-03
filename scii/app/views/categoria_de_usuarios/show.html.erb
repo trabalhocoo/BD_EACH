@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @categoria_de_usuario.nome %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%= @categoria_de_usuario.descricao %>
+</p>
+
+
+<%= link_to 'Edit', edit_categoria_de_usuario_path(@categoria_de_usuario) %> |
+<%= link_to 'Back', categoria_de_usuarios_path %>

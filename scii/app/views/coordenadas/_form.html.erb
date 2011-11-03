@@ -1,0 +1,25 @@
+<%= form_for(@coordenada) do |f| %>
+  <% if @coordenada.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@coordenada.errors.count, "error") %> prohibited this coordenada from being saved:</h2>
+
+      <ul>
+      <% @coordenada.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :coord_x %><br />
+    <%= f.text_field :coord_x %>
+  </div>
+  <div class="field">
+    <%= f.label :coord_y %><br />
+    <%= f.text_field :coord_y %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

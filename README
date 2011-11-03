@@ -27,7 +27,10 @@ USUÁRIO
 	
 UPLOAD
 	Tela para subir imagem. Tera um campo pra subir a imagem, em seguida o usuário pode selecionar a categoria dentre as que já existem ou criar uma nova, além de dar atributos à imagem de uma lista ou criar novos atributos. Após a criação da imagem, será sugerido ao usuário que subiu que faça as primeiras sugestões da imagem.
-	
+
+=== introdução ao rails ===
+http://guides.rubyonrails.org/getting_started.html
+
 === problemas encontrados com rails ===
 rake nao encontrado - http://www.genlinux.org/2008/12/no-such-file-to-load-rake.html
 

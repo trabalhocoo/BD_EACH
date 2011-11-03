@@ -1,0 +1,25 @@
+<h1>Listing categoria_de_acessos</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Descricao</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @categoria_de_acessos.each do |categoria_de_acesso| %>
+  <tr>
+    <td><%= categoria_de_acesso.nome %></td>
+    <td><%= categoria_de_acesso.descricao %></td>
+    <td><%= link_to 'Show', categoria_de_acesso %></td>
+    <td><%= link_to 'Edit', edit_categoria_de_acesso_path(categoria_de_acesso) %></td>
+    <td><%= link_to 'Destroy', categoria_de_acesso, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Categoria de acesso', new_categoria_de_acesso_path %>
