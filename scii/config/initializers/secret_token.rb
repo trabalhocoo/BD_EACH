@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Scii::Application.config.secret_token = 'c5578d33450122bf47e2b49ae923bcc18818b897f0c17119244ac6f63186d9bc8b1c071db0172198be60309dd39e56173151f954cada0103d1cae6b6d3936bc3'
+Scii::Application.config.secret_token = 'aba0c7e13b4555f87e1ca620fbe0438cbdd01403eee1488ef93be34fc9d3b97ee4ec629a5a1b7576a974e54ff7bfa1cf48614ffaf244e6e32f1c76423e8660aa'
