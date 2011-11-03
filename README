@@ -34,4 +34,12 @@ rake nao encontrado - http://www.genlinux.org/2008/12/no-such-file-to-load-rake.
 === problemas encontrados com postgresql ===
 setup - https://help.ubuntu.com/community/PostgreSQL
 http://stackoverflow.com/questions/2942485/psql-fatal-ident-authentication-failed-for-user-postgres
->>>>>>> upstream/master
+
+	Edit the file /etc/postgresql/<sua-versao>/main/pg_hba.conf and replace "ident" by either "md5" or "trust", depending on whether you want it to ask for a password on your own computer or not. Then restart by:
+
+	# "local" is for Unix domain socket connections only
+	local   all              all               trust
+
+	/etc/init.d/postgresql stop
+	/etc/init.d/postgresql start
+
