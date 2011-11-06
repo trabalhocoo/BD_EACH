@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  coord_x: 9.99
-  coord_y: 9.99
+  coord_x: 1
+  coord_y: 1
 
 two:
-  coord_x: 9.99
-  coord_y: 9.99
+  coord_x: 1
+  coord_y: 1

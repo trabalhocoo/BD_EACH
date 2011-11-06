@@ -1,5 +1,10 @@
 class Usuario < ActiveRecord::Base
-	validates :nome, :presence => true
-	has_one :categoria_de_acesso
-	has_one :categoria_de_usuario
+	belongs_to :catetoria_de_usuario
+	belongs_to :catetoria_de_acesso
+
+	has_many :atributo
+	has_many :faz_comentario
+	has_many :sugestao
+
+	has_and_belongs_to_many :sugestao
 end
