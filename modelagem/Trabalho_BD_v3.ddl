@@ -99,7 +99,7 @@ create table USUARIO (
      id_usuario serial not null,
      id_categoriaUsuario integer,
      id_categoriaAcesso integer,
-     nome varchar(25) not null,
+     nome varchar(255) not null,
      pontuacao numeric(100) not null,
      data_da_criacao date not null,
      constraint IDUsuario_ID primary key (id_usuario),
