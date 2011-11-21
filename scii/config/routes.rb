@@ -1,4 +1,6 @@
 Scii::Application.routes.draw do
+   devise_for :usuarios
+
 	root :to => 'welcome#index'
 	resources :welcome
 	resources :usuarios
