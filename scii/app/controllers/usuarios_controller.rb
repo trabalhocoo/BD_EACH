@@ -10,9 +10,13 @@ class UsuariosController < ApplicationController
 
 	def create
 		@usuario = Usuario.new(params[:usuario])
-		@usuario.save
-		flash[:notice] = "Usuário criado."
-		redirect_to @usuario
+		if	@usuario.save
+			flash[:notice] = "Usuário criado."
+			redirect_to @usuario
+		else
+			flash[:alert] = "Usuário não foi criado"
+			render :action => "new"
+		end
 	end
 
 	def show
