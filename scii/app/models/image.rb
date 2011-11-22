@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-	belongs_to :user
+	belongs_to :usuario
 								
 	has_attached_file :photo, :styles => {:small => "150x150>"}
 	

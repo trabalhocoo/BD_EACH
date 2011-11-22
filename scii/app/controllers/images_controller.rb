@@ -10,7 +10,7 @@ class ImagesController < ApplicationController
 	end
 	
 	def create
-		@image = Image.build(params[:image].merge!(:user => current_user))
+		@image = Image.new(params[:image].merge!(:usuario => current_usuario))
 		if	@image.save
 			flash[:notice] = "Imagem criada."
 			redirect_to @image
