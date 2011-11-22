@@ -1,3 +1,9 @@
 <% @title = @usuario.nome %>
 
 <h2><%= @usuario.nome %></h2>
+
+<ul>
+	<% @image.each do |image| %>
+		<li><%= image_tag image.photo.url(:small) %></li>	
+	<% end %>
+</ul>
