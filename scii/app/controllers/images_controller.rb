@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+	before_filter :authenticate_usuario!, :except => [:index, :show]
 
 	def index
 		@image = Image.all
@@ -9,7 +10,7 @@ class ImagesController < ApplicationController
 	end
 	
 	def create
-		@image = Image.new(params[:image])
+		@image = Image.build(params[:image].merge!(:user => current_user))
 		if	@image.save
 			flash[:notice] = "Imagem criada."
 			redirect_to @image
@@ -28,6 +29,13 @@ class ImagesController < ApplicationController
 		@image.update_attributes(params[:image])
 		flash[:notice] = "Imagem atualizada."
 		redirect_to @image
+	end
+	
+	def destroy
+		@image = Image.find(params[:id])
+		@image.destroy
+		flash[:notice] = "Imagem foi removida"
+		redirect_to images_path
 	end
 	
 	def show

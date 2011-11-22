@@ -50,3 +50,9 @@ http://stackoverflow.com/questions/2942485/psql-fatal-ident-authentication-faile
 	/etc/init.d/postgresql stop
 	/etc/init.d/postgresql start
 
+
+=== modulos usados ===
+paperclip
+	http://railscasts.com/episodes/134-paperclip
+	https://github.com/thoughtbot/paperclip
+	http://www.emersonlackey.com/article/rails-paperclip-multiple-file-uploads
