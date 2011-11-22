@@ -1,5 +1,8 @@
 Scii::Application.routes.draw do
-   devise_for :usuarios
+	devise_for :usuarios,
+		   :controllers => {
+			:registrations => 'my_devise/registrations',
+			}
 
 	root :to => 'welcome#index'
 	resources :welcome

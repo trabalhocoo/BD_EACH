@@ -34,6 +34,10 @@ http://guides.rubyonrails.org/getting_started.html
 === problemas encontrados com rails ===
 rake nao encontrado - http://www.genlinux.org/2008/12/no-such-file-to-load-rake.html
 
+problema com openssl
+http://www.elvis.eti.br/2011/01/29/resolvendo-problemas-com-rails-rvm-openssl-e-readline-no-ubuntu/
+http://stackoverflow.com/questions/7755639/rails-no-such-file-to-load-openssl-when-generate-model
+
 === problemas encontrados com postgresql ===
 setup - https://help.ubuntu.com/community/PostgreSQL
 http://stackoverflow.com/questions/2942485/psql-fatal-ident-authentication-failed-for-user-postgres
