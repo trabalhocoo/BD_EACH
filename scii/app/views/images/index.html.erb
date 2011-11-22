@@ -1,1 +1,7 @@
 <h1>Imagens</h1>
+
+<ul>
+	<% @image.each do |image| %>
+		<li><%= image_tag image.photo.url(:small) %></li>	
+	<% end %>
+</ul>
