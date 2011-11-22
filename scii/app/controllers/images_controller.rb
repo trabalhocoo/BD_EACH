@@ -19,6 +19,17 @@ class ImagesController < ApplicationController
 		end
 	end
 	
+	def edit
+		@image = Image.find(params[:id])
+	end
+	
+	def update
+		@image = Image.find(params[:id])
+		@image.update_attributes(params[:image])
+		flash[:notice] = "Imagem atualizada."
+		redirect_to @image
+	end
+	
 	def show
 		@image = Image.find(params[:id])
 	end
