@@ -1,0 +1,7 @@
+<% @title = "Atributos" %>
+
+<% if usuario_signed_in? %>
+	<% if current_usuario.id == @atributo.usuario.id %>
+		<p><%= @atributo.nome %> - <%= link_to "Editar Atributo", edit_atributo_path(@atributo) %></p>
+	<% end %>
+<% end %>

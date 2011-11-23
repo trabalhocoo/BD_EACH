@@ -7,3 +7,14 @@
 		<li><%= link_to (image_tag image.photo.url(:small)), :controller => "images", :action => "show", :id => image.id %></li>	
 	<% end %>
 </ul>
+
+<% if usuario_signed_in? %>
+		<ul>
+		<% @atributo.each do |atributo| %>
+			<% if current_usuario.id == atributo.usuario_id%>
+				<li><%= atributo.nome %> </li>
+			<% end %>
+		<% end %>
+		</ul>
+<% end %>
+

@@ -22,6 +22,7 @@ class UsuariosController < ApplicationController
 	def show
 		@usuario = Usuario.find(params[:id])
 		@image = @usuario.images
+		@atributo = @usuario.atributos
 	end
 
 end
