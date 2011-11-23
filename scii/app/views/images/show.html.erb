@@ -2,6 +2,8 @@
 
 <p><small>Criado por <%= @image.usuario.nome %></small></p>
 <%= image_tag @image.photo.url(:small) %>
-<% if current_usuario.id == @image.usuario.id %>
-	<p><%= link_to "Editar Imagem", edit_image_path(@image) %> | <%= link_to "Deletar Imagem",	@image, :method => :delete, :confirm => "Confirmar?" %></p>
+<% if usuario_signed_in? %>
+	<% if current_usuario.id == @image.usuario.id %>
+		<p><%= link_to "Editar Imagem", edit_image_path(@image) %> | <%= link_to "Deletar Imagem",	@image, :method => :delete, :confirm => "Confirmar?" %></p>
+	<% end %>
 <% end %>
