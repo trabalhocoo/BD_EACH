@@ -12,7 +12,7 @@
 		<ul>
 		<% @atributo.each do |atributo| %>
 			<% if current_usuario.id == atributo.usuario_id%>
-				<li><%= atributo.nome %> </li>
+				<li><%= atributo.nome %> - <%= link_to "Editar Atributo", edit_atributo_path(atributo) %></li>
 			<% end %>
 		<% end %>
 		</ul>
