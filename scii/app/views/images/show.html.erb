@@ -13,6 +13,9 @@
 	<h4><%= comentario.titulo %></h4>
 	<small><%= comentario.usuario.nome %> disse:</small>
 	<p><%= comentario.conteudo %></p>
+	<% if current_usuario.id == comentario.usuario.id %>
+		<%= link_to "Apagar comentário",	[@image, comentario], :method => :delete, :confirm => "Confirmar?" %>
+	<%end %>
 <% end %>
 
 <% if usuario_signed_in? %>

@@ -1,7 +1,7 @@
 class Usuario < ActiveRecord::Base
-	has_many :images
-	has_many :atributos
-	has_many :comentarios
+	has_many :images, :dependent => :destroy
+	has_many :atributos, :dependent => :destroy
+	has_many :comentarios, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -7,4 +7,12 @@ class ComentariosController < ApplicationController
 		redirect_to image_path(@image)
 	end
 
+	def destroy
+		@image = Image.find(params[:image_id])
+		@comentario = @image.comentarios.find(params[:id])
+		@comentario.destroy
+		flash[:notice] = "comentario removido"
+		redirect_to image_path(@image)
+	end
+
 end
