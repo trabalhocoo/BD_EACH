@@ -1,6 +1,7 @@
 class Image < ActiveRecord::Base
 	belongs_to :usuario
 	has_many :comentarios, :dependent => :destroy
+	has_and_belongs_to_many :atributos
 								
 	has_attached_file :photo, :styles => {:small => "150x150>", :medium => "300x300", :large => "600X600"}
 	

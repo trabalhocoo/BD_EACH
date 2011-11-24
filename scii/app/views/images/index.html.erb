@@ -2,6 +2,6 @@
 
 <ul>
 	<% @image.each do |image| %>
-		<li><%= image_tag image.photo.url(:small) %></li>	
+		<li><%= link_to (image_tag image.photo.url(:small)), :controller => "images", :action => "show", :id => image.id %></li>	
 	<% end %>
 </ul>

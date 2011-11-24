@@ -6,6 +6,7 @@
 	<% if current_usuario.id == @image.usuario.id %>
 		<p><%= link_to "Editar Imagem", edit_image_path(@image) %> | <%= link_to "Deletar Imagem",	@image, :method => :delete, :confirm => "Confirmar?" %></p>
 	<% end %>
+	<%= f.label :atributo_id %>
 <% end %>
 
 <h2>Comentários</h2>

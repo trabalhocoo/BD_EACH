@@ -27,6 +27,7 @@ class ImagesController < ApplicationController
 	
 	def edit
 		@image = current_usuario.images.find(params[:id])
+		@atributo = current_usuario.atributos.all
 	end
 	
 	def update
