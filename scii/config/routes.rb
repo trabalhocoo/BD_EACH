@@ -7,7 +7,9 @@ Scii::Application.routes.draw do
 	root :to => 'welcome#index'
 	resources :welcome
 	resources :usuarios
-	resources :images
+	resources :images do
+		resources :comentarios
+	end
 	resources :atributos
   # The priority is based upon order of creation:
   # first created -> highest priority.
