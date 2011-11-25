@@ -6,6 +6,8 @@ class ImagesController < ApplicationController
 		redirect_to :action => :index   # or e.g. redirect_to :action => :index
 	end
 	
+	
+
 	def index
 		@image = Image.all
 	end

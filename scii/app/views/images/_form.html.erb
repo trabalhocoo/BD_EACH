@@ -4,7 +4,11 @@
   <%= f.text_area(:descricao, :size => "24x6") %></div>
 
 	<div><%= f.label :atributo_id %>
-		<%= f.select :atributo_id, @atributos.map {|s| [s.nome, s.id]}, :selected => @image.atributo_id %>
+		<% @atributo.each do |atributo| %>
+			<ul>
+				<li><%= check_box_tag "image[atributo_ids][]", atributo.id, @image.atributos.include?(atributo) %> <%= atributo.nome %></li>
+			</ul>
+		<% end %>
 	</div>
 
   <div>

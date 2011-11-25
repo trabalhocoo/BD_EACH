@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111124160655) do
+ActiveRecord::Schema.define(:version => 20111125143344) do
 
   create_table "atributos", :force => true do |t|
     t.string   "nome"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(:version => 20111124160655) do
     t.string   "titulo"
   end
 
+  create_table "image_atributos", :id => false, :force => true do |t|
+    t.integer "image_id"
+    t.integer "atributo_id"
+  end
+
+  add_index "image_atributos", ["atributo_id"], :name => "index_image_atributos_on_atributo_id"
+  add_index "image_atributos", ["image_id"], :name => "index_image_atributos_on_image_id"
+
   create_table "images", :force => true do |t|
     t.text     "descricao"
     t.decimal  "pontuacao"
@@ -38,11 +46,6 @@ ActiveRecord::Schema.define(:version => 20111124160655) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "usuario_id"
-  end
-
-  create_table "images_atributos", :id => false, :force => true do |t|
-    t.integer "image_id"
-    t.integer "atributo_id"
   end
 
   create_table "usuarios", :force => true do |t|
