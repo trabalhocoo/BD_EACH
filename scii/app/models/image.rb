@@ -1,5 +1,6 @@
 class Image < ActiveRecord::Base
 	belongs_to :usuario
+	has_many :suggestions
 	has_many :comentarios, :dependent => :destroy
 	has_many :image_atributos
 	has_many :atributos, :through => :image_atributos

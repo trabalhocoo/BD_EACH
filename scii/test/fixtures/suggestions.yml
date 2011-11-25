@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sugestao: 
+  pontuacao: 
+  image_id: 
+  atributo_id: 
+  usuario_id: 1
+
+two:
+  sugestao: 
+  pontuacao: 
+  image_id: 
+  atributo_id: 
+  usuario_id: 1

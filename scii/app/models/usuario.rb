@@ -1,4 +1,5 @@
 class Usuario < ActiveRecord::Base
+	has_many :suggestions
 	has_many :images, :dependent => :destroy
 	has_many :atributos, :dependent => :destroy
 	has_many :comentarios, :dependent => :destroy

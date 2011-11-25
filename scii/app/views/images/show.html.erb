@@ -9,8 +9,11 @@
 <% end %>
 
 <h2>Atributos</h2>
-<% @image.atributos.each do |atributo| %>
-	<p><%= atributo.nome %></p>
+<%= form_for([@image, @image.suggestions.build]) do |f| %>
+	<% @image.atributos.each do |atributo| %>
+		<p><%=f.label atributo.nome %>: <%= f.text_field :sugestao%></p>
+	<% end %>
+	<p><%= f.submit %></p>
 <% end %>
 
 <h2>Comentários</h2>

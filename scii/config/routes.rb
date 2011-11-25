@@ -9,6 +9,7 @@ Scii::Application.routes.draw do
 	resources :usuarios
 	resources :images do
 		resources :comentarios
+		resources :suggestions
 	end
 	resources :atributos
   # The priority is based upon order of creation:

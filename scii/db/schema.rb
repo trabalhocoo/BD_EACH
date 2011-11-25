@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111125143344) do
+ActiveRecord::Schema.define(:version => 20111125183501) do
 
   create_table "atributos", :force => true do |t|
     t.string   "nome"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(:version => 20111125143344) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "usuario_id"
+  end
+
+  create_table "suggestions", :force => true do |t|
+    t.string   "sugestao"
+    t.decimal  "pontuacao"
+    t.integer  "image_id"
+    t.integer  "atributo_id"
+    t.integer  "usuario_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "usuarios", :force => true do |t|
