@@ -3,11 +3,16 @@
   <div><%= f.label :descricao %><br />
   <%= f.text_area(:descricao, :size => "24x6") %></div>
 
-	<div><%= f.label :atributo_id %>
-		<% @atributo.each do |atributo| %>
-			<ul>
-				<li><%= check_box_tag "image[atributo_ids][]", atributo.id, @image.atributos.include?(atributo) %> <%= atributo.nome %></li>
-			</ul>
+		<% if @atributo %>
+			<div><%= f.label :atributo_id %>
+			<% @atributo.each do |atributo| %>
+				<ul>
+					<li><%= check_box_tag "image[atributo_ids][]", atributo.id, @image.atributos.include?(atributo) %> <%= atributo.nome %></li>
+				</ul>
+			<% end %>
+		<% else %>
+			<h3>Ainda não existem atributos</h3>
+			<p>Criar atributos</p>
 		<% end %>
 	</div>
 

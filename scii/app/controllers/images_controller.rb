@@ -14,6 +14,7 @@ class ImagesController < ApplicationController
 	
 	def new
 		@image = Image.new
+		@atributo = current_usuario.atributos.all
 	end
 	
 	def create
