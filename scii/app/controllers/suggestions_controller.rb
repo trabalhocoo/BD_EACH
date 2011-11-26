@@ -3,7 +3,10 @@ class SuggestionsController < ApplicationController
 
 	def create
 		@image = Image.find(params[:image_id])
-		@suggestion = @image.suggestions.create(params[:suggestion].merge!(:usuario => current_usuario, :atributo => @image.atributos))
+		@atributo = @image.atributos
+		@atributo.each do |atributo|
+			@suggestion = @image.suggestions.create(params[:suggestion].merge!(:usuario => current_usuario, :atributo => atributo))
+		end
 		redirect_to image_path(@image)
 	end
 

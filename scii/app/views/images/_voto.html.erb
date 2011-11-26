@@ -1,0 +1,3 @@
+<%= link_to_remote "Vote up", :url => {:controller => :votos, :action => :vote_up, :id => suggestion.id}, :update => "pontuacao_#{suggestion.id}" %>
+<%= link_to_remote "Vote down", :url => {:controller => :votos, :action => :vote_down, :id => suggestion.id}, :update => "pontuacao_#{suggestion.id}" %>
+

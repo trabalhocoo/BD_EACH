@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111125183501) do
+ActiveRecord::Schema.define(:version => 20111126192144) do
 
   create_table "atributos", :force => true do |t|
     t.string   "nome"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20111125183501) do
 
   create_table "suggestions", :force => true do |t|
     t.string   "sugestao"
-    t.decimal  "pontuacao"
+    t.decimal  "pontuacao",   :default => 0.0
     t.integer  "image_id"
     t.integer  "atributo_id"
     t.integer  "usuario_id"
@@ -76,5 +76,13 @@ ActiveRecord::Schema.define(:version => 20111125183501) do
 
   add_index "usuarios", ["email"], :name => "index_usuarios_on_email", :unique => true
   add_index "usuarios", ["reset_password_token"], :name => "index_usuarios_on_reset_password_token", :unique => true
+
+  create_table "votos", :id => false, :force => true do |t|
+    t.integer "usuario_id"
+    t.integer "suggestion_id"
+  end
+
+  add_index "votos", ["suggestion_id"], :name => "index_votos_on_suggestion_id"
+  add_index "votos", ["usuario_id"], :name => "index_votos_on_usuario_id"
 
 end

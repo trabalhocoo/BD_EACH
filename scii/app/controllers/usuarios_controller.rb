@@ -19,6 +19,13 @@ class UsuariosController < ApplicationController
 		end
 	end
 
+	def update
+		@usuario = Usuario.find(params[:id])
+		@usuario.update_attributes(params[:usuario])
+		flash[:notice] = "Usuário atualizado."
+		redirect_to @usuario
+	end
+
 	def show
 		@usuario = Usuario.find(params[:id])
 		@image = @usuario.images

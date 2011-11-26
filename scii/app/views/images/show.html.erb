@@ -9,11 +9,20 @@
 <% end %>
 
 <h2>Atributos</h2>
-<%= form_for([@image, @image.suggestions.build]) do |f| %>
-	<% @image.atributos.each do |atributo| %>
-		<p><%=f.label atributo.nome %>: <%= f.text_field :sugestao%></p>
+<ul>
+	<% @image.suggestions.each do |suggestion| %>
+		<li><strong><%= suggestion.atributo.nome %></strong>: <%= suggestion.sugestao %> - <%= suggestion.usuario.nome %> - <%= link_to "Vote up", :controller => :votos, :action => :vote_up, :id => suggestion.id %>
+<%= link_to "Vote down", :url => {:controller => :votos, :action => :vote_down, :id => suggestion.id}, :update => "pontuacao_#{suggestion.id}" %></li>
 	<% end %>
-	<p><%= f.submit %></p>
+</ul>
+<% if usuario_signed_in?%>
+<h2>Sugira Atributos</h2>
+	<%= form_for([@image, @image.suggestions.build]) do |f| %>
+		<% @image.atributos.each do |atributo| %>
+				<p><%=f.label atributo.nome %>: <%= f.text_field :sugestao%></p>
+		<% end %>
+		<p><%= f.submit %></p>
+	<% end %>
 <% end %>
 
 <h2>Comentários</h2>
@@ -21,9 +30,9 @@
 	<h4><%= comentario.titulo %></h4>
 	<small><%= comentario.usuario.nome %> disse:</small>
 	<p><%= comentario.conteudo %></p>
-	<% if current_usuario.id == comentario.usuario.id %>
-		<%= link_to "Apagar comentário",	[@image, comentario], :method => :delete, :confirm => "Confirmar?" %>
-	<%end %>
+	<% if usuario_signed_in? &&  current_usuario.id == comentario.usuario.id%>
+			<%= link_to "Apagar comentário",	[@image, comentario], :method => :delete, :confirm => "Confirmar?" %>
+	<% end %>
 <% end %>
 
 <% if usuario_signed_in? %>

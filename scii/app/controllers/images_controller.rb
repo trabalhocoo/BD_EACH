@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+
 	before_filter :authenticate_usuario!, :except => [:index, :show]
 	
 	rescue_from ActiveRecord::RecordNotFound do
@@ -49,6 +50,7 @@ class ImagesController < ApplicationController
 	
 	def show
 		@image = Image.find(params[:id])
+		@suggestion = current_usuario.suggestions.all
 	end
 
 end
