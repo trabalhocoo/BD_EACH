@@ -394,6 +394,7 @@ font-size:8px
 
 .product_detail_left {
 	float: left;
+	width:600px
 }
 
 .product_detail_left .product_img_wrapper {

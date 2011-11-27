@@ -1,16 +1,12 @@
 <% @title = @usuario.nome %>
 <div id="templatemo_content">
-<table cellspacing="30">
-<tr>
-	<td><p id="templatemo_titulo_imagem"><h1>Página de <%= @usuario.nome %></h1></p></td>
-</tr>
+<h2 id="templatemo_titulo_imagem">Página de <%= @usuario.nome %></h2>
 
-<tr>
-<td>
-	<table width="500" border="0" cellspacing="10">
+<div class="product_detail_left">
 		<% @img = 0 %>
-		<tr ><td><h2>Imagens | </h2> </td><td><h2><%= link_to "Adicionar Imagem", new_image_path() %></h2></td></tr>
+		<h2>Imagens</h2><% if current_usuario.id == @usuario.id  %><h2><%= link_to "Adicionar Imagem", new_image_path() %></h2><%end%>
 		<% @image.each do |image| %>
+		<table>
 			<% @img += 1 %>
 			<% if @img % 2 == 1%>
 				<tr><td><%= link_to (image_tag image.photo.url(:small)), :controller => "images", :action => "show", :id => image.id %></td>	
@@ -18,26 +14,19 @@
 				<td><%= link_to (image_tag image.photo.url(:small)), :controller => "images", :action => "show", :id => image.id %></td></tr>
 			<% end %>	
 		<% end %>
-		
-	</table>
-</td>
-<td align="top">
-        <table>
-	<tr><td><h2>Atributos</h2></td></tr>
-	<% if usuario_signed_in? %>				
+		</table>
+</div>
+<div class="product_detail_right">
+	<h2>Atributos</h2>
+		<% if usuario_signed_in? %>				
 			<% @atributo.each do |atributo| %>
 				<% if current_usuario.id == atributo.usuario_id%>
-					<tr><td><h6><%= atributo.nome %> - <%= link_to "Editar Atributo", edit_atributo_path(atributo) %></h6></td></tr>
+					<h6><%= atributo.nome %> - <%= link_to "Editar Atributo", edit_atributo_path(atributo) %></h6>
 				<% end %>
 			<% end %>		
-	<% end %>
-	<tr>
-	<td>	
-		<h5><%= link_to "Criar Atributos", new_atributo_path() %></h5>
-	</td>
-	</tr>
-	</table>
-</td>
-</tr>
-</table>
+		<% end %>
+		<% if current_usuario.id == @usuario.id  %>
+			<h5><%= link_to "Criar Atributos", new_atributo_path() %></h5>
+		<% end %>
+</div>
 </div>
