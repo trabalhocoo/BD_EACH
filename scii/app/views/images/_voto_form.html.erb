@@ -1,6 +1,4 @@
 <% if usuario_signed_in? %>
-	<div id="vote_form">
-			<%= render 'voto' %>
-	</div>
+			<%= render :partial => 'voto', :locals => {:suggestion => suggestion} %>
 <% end %>
 
