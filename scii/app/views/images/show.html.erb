@@ -40,12 +40,7 @@
 </div>
 
 <div class="product_detail_right"> 
-	<h2>Atributos</h2>
-		<ul>
-			<% @image.suggestions.each do |suggestion| %>
-				<li><strong><%= suggestion.atributo.nome %></strong>: <%= suggestion.sugestao %> - <%= suggestion.usuario.nome %> - <%= render :partial => "voto_form", :locals => {:suggestions }  %></li>
-			<% end %>
-		</ul>
+		<%= render :partial => "sugestoes" %>
 		<% if usuario_signed_in?%>
 		<h2>Sugira Atributos</h2>
 			<%= form_for([@image, @image.suggestions.build]) do |f| %>
