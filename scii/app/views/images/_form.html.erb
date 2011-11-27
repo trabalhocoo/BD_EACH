@@ -1,5 +1,8 @@
 <%= form_for @image, :html => {:multipart => true} do |f| %>
 
+	<div><%= f.label :titulo %><br />
+  <%= f.text_field:titulo %></div>
+
   <div><%= f.label :descricao %><br />
   <%= f.text_area(:descricao, :size => "24x6") %></div>
 

@@ -1,7 +1,7 @@
 <div id="templatemo_content">
 <% @title = "Imagem" %>
 
-	<h2 id="templatemo_titulo_imagem">Times Square</h2>
+	<h2 id="templatemo_titulo_imagem"><%= @image.titulo %></h2>
 <div class="product_detail_left">
 	<p><small>Criado por <%= @image.usuario.nome %></small></p>
 	<%= image_tag @image.photo.url(:large) %>
