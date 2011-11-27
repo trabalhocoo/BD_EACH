@@ -2,23 +2,18 @@ Scii::Application.routes.draw do
 	devise_for :usuarios,
 		   :controllers => {
 			:registrations => 'my_devise/registrations',
+			:sessions => 'my_devise/sessions',
+			:passwords => 'my_devise/passwords',
 			}
 
 	root :to => 'welcome#index'
 	resources :welcome
-	resources :usuarios do
-		resources :suggestions
-	end
+	resources :usuarios
 	resources :images do
 		resources :comentarios
 		resources :suggestions
 	end
 	resources :atributos
-	resources :votos
-
-	match '/vote_up', :controller => 'votos', :action => 'vote_up'
-	match '/vote_down', :controller => 'votos', :action => 'vote_down'
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
