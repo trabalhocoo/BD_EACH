@@ -3,36 +3,38 @@
 <head>
   <title><%= @title || "Scii" %></title>
   <%= stylesheet_link_tag    "application" %>
-   <%= stylesheet_link_tag    "templatemo_style" %>
+   <%= stylesheet_link_tag   "templatemo_style" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-	</head>
-	<body>
+</head>
+<body>
 	<div id="templatemo_site_title_bar_wrapper">
-	<div id="templatemo_site_title_bar">
-    
-	        <div id="site_title">
-                <h1><a href="index.html">
-		<%= image_tag ("ilustracao/templatemo_logo.png",  :alt => "Portfolio",  :width=>"319",  :height=>"75") %><span>Foto Compartilhamento</span>
-                
-                </a></h1>
+		<div id="templatemo_site_title_bar">
+	    
+			<div id="site_title">
+		        <h1><%= link_to (image_tag ("ilustracao/templatemo_logo.png",  :alt => "Portfolio",  :width=>"319",  :height=>"75")), :root %></h1>
+			</div>
+		        
+			<div id="templatemo_menu">
+				<ul>
+					<li><%= link_to "Home", :root %></li>                 
+				</ul> 
+	  		</div> 
 		</div>
-                
-            <div id="templatemo_menu">
-                <ul>
-				<li><span><%= link_to "Home"  %></span></li>
-			<% if usuario_signed_in? %>				
-				<li><span>Olá <%= link_to current_usuario.nome, usuario_path(current_usuario, :view => "show") %></span></li>
-				<li><span><%= link_to "Sair", destroy_usuario_session_path, :method => :delete %></span></li>
+		<div id="menu_usuario">
+			<% if usuario_signed_in? %>
+				
+				<p>Olá <%= link_to current_usuario.nome, usuario_path(current_usuario, :view => "show") %> | <%= link_to "Sair", destroy_usuario_session_path, :method => :delete %></p>
 			<% else %>
-				<li><span><%= link_to "Entrar", new_usuario_session_path %></span></a></li>
-				<li><span><%= link_to "Cadastre-se", new_usuario_registration_path %></span></a></li>
-			<% end %>                    
-                </ul> 
-  </div> </div>
-</div>
-
-
+				<p><%= link_to "Entrar", new_usuario_session_path %> | <%= link_to "Cadastre-se", new_usuario_registration_path %></p>
+			<% end %>
+		</div>   
+	</div>
+<% flash.each do |key, value| %>
+	<div class='flash' id='<%= key %>'>
+		<%= value %>
+	</div>
+<% end %>
 	<%= yield %>
 	</body>
 </html>
