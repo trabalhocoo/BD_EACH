@@ -4,4 +4,6 @@ class Suggestion < ActiveRecord::Base
 	belongs_to :atributo
 	has_many :votos
 	has_many :usuarios, :through => :votos
+
+	default_scope :order => "pontuacao DESC"
 end
