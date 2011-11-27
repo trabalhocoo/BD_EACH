@@ -1,14 +1,16 @@
 <h2>Sugestões</h2>
-	<table>
-			<tr>
+	<table id="tabela_sugestoes">
+			<tr class="imagem_sugestao_titulo">
 				<td>Atributo</td>
 				<td>Sugestão</td>
+				<td>Pontuacao</td>
 				<td>quem sugeriu<td>
 			</tr>
 			<% @image.suggestions.each do |suggestion| %>
 				<tr>
-					<td><strong><%= suggestion.atributo.nome %></strong>:</td>
-					<td><%= suggestion.sugestao %> -</td>
+					<td><strong><%= suggestion.atributo.nome %></strong></td>
+					<td><%= suggestion.sugestao %></td>
+					<td><%= suggestion.pontuacao %></td>
 					<td><%= suggestion.usuario.nome %> <%= render :partial => "voto_form", :locals => {:suggestion => suggestion}  %></td>
 				</tr>
 			<% end %>

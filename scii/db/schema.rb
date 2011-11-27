@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20111127181657) do
 
   create_table "images", :force => true do |t|
     t.text     "descricao"
-    t.decimal  "pontuacao"
+    t.decimal  "pontuacao",          :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo_file_name"

@@ -11,12 +11,16 @@ class VotosController < ApplicationController
 			suggestion_vote.value = true
 			suggestion_vote.save
 			suggestion.pontuacao += 1
+			@image.pontuacao += 1
+			@image.save
 			suggestion.save
 			redirect_to @image
 		elsif check.value == false
 			check.value = true
 			check.save
 			suggestion.pontuacao += 2
+			@image.pontuacao += 2
+			@image.save
 			suggestion.save
 			redirect_to @image
 		else
@@ -35,11 +39,15 @@ class VotosController < ApplicationController
 			suggestion_vote.value = true
 			suggestion_vote.save
 			suggestion.pontuacao -= 1
+			@image.pontuacao -= 1
+			@image.save
 			suggestion.save
 			redirect_to @image
 		elsif check.value == false
 			check.save
 			suggestion.pontuacao -= 2
+			@image.pontuacao -= 2
+			@image.save
 			suggestion.save
 			redirect_to @image
 		else

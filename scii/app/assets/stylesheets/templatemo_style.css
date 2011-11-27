@@ -527,3 +527,9 @@ font-size:8px
 	text-align:right;
 	font-size:14px
 }
+
+/* imagem show */
+#tabela_sugestoes td{
+	padding: 5px
+}
+.imagem_sugestao_titulo{ font-weight: bold}
