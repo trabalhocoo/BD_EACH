@@ -1,16 +1,16 @@
 <%= form_for @image, :html => {:multipart => true} do |f| %>
-
-	<div><%= f.label :titulo %><br />
-  <%= f.text_field:titulo %></div>
-
-  <div><%= f.label :descricao %><br />
-  <%= f.text_area(:descricao, :size => "24x6") %></div>
+	
+	<h6>Titulo</h6>
+	<%= f.text_field:titulo %>
+		
+	 <div><h6>Descrição</h6>
+	 <%= f.text_area(:descricao, :size => "24x6") %></div>
 
 		<% if @atributo %>
-			<div><%= f.label :atributo_id %>
+			<div><h5>Atributos:</h5>
 			<% @atributo.each do |atributo| %>
 				<ul>
-					<li><%= check_box_tag "image[atributo_ids][]", atributo.id, @image.atributos.include?(atributo) %> <%= atributo.nome %></li>
+					<li><h7><%= check_box_tag "image[atributo_ids][]", atributo.id, @image.atributos.include?(atributo) %> <%= atributo.nome %></h7></li>
 				</ul>
 			<% end %>
 		<% else %>
@@ -23,5 +23,6 @@
   	<%= f.file_field :photo %>
   </div>
 
+  </br>
   <div><%= f.submit "Criar" %></div>
 <% end %>
