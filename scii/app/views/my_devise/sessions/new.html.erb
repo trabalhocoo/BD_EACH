@@ -1,15 +1,12 @@
 <div id="templatemo_content">
   
   <table width="321" border="0" align="left" cellspacing="10">
-   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+   <%= devise_error_messages! %>
     <tr>
       <td width="279">
-	<h2>  Cadastre-se  </h2>
+	<h2> Login  </h2>
 
-	<p>&nbsp;</p>
-        Nome:
-        <div><%= f.text_field :nome %></div>
 
         <p>&nbsp;</p>
         Email:
@@ -18,16 +15,11 @@
      	<p>&nbsp;</p>
         Password:
         <div><%= f.password_field :password %></div>
-      
-        <p>&nbsp;</p>
-        Password Confirmation:
-        <div><%= f.password_field :password_confirmation %></div>
-        
       </td>
     </tr>
 
     <tr>
-      <td><div><%= f.submit "Cadastrar" %></div></td>
+      <td><div><%= f.submit "Entrar" %></div></td>
     </tr>
 
 

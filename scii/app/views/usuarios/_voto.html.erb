@@ -1,5 +1,0 @@
-<%= form_for current_usuario.votos.build(:usuario_id => @usuario.id) do |f| %>
-	<div><%= f.hidden_field :usuario_id %></div>
-	<div class="actions"><%= f.submit "Votar" %></div>
-<% end %>
-

@@ -1,8 +1,2 @@
-<% if usuario_signed_in? %>
-	<p>Olá <%= link_to current_usuario.nome, usuario_path(current_usuario, :view => "show") %></p>
-	<p><%= link_to "Sair", destroy_usuario_session_path, :method => :delete %></p>
-<% else %>
-	<p><%= link_to "Cadastre-se", new_usuario_registration_path %></p>
-	<p><%= link_to "Entrar", new_usuario_session_path %></p>
-<% end %>
+
 

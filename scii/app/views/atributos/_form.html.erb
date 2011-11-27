@@ -1,8 +1,18 @@
-<%= form_for (@atributo) do |f| %>
-
-  	<div><%= f.label :nome %><br />
-  		<%= f.text_field :nome %>
-	</div>
+<div id="templatemo_content">
   
-  <div><%= f.submit "Criar" %></div>
-<% end %>
+  <table width="321" border="0" align="left" cellspacing="20">
+   <%= form_for (@atributo) do |f| %>
+    <tr>
+      <td width="279"><form id="form1" name="form1" method="post" action="">
+          <h2> Nome do atributo </h2>
+          <label for="nome2"></label>
+          Atributo:
+          <div><%= f.text_field :nome %></div>
+        
+
+    <tr>
+      <td><div><%= f.submit "Criar" %></div></td>
+    </tr>
+    <% end %>
+  </table>
+  </div>

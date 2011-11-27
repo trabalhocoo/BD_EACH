@@ -1,50 +1,62 @@
+<div id="templatemo_content">
 <% @title = "Imagem" %>
 
-<p><small>Criado por <%= @image.usuario.nome %></small></p>
-<%= image_tag @image.photo.url(:large) %>
-<% if usuario_signed_in? %>
-	<% if current_usuario.id == @image.usuario.id %>
-		<p><%= link_to "Editar Imagem", edit_image_path(@image) %> | <%= link_to "Deletar Imagem",	@image, :method => :delete, :confirm => "Confirmar?" %></p>
-	<% end %>
-<% end %>
-
-<h2>Atributos</h2>
-<ul>
-	<% @image.suggestions.each do |suggestion| %>
-		<li><strong><%= suggestion.atributo.nome %></strong>: <%= suggestion.sugestao %> - <%= suggestion.usuario.nome %> - <%= link_to "Vote up", :controller => :votos, :action => :vote_up, :id => suggestion.id %>
-<%= link_to "Vote down", :controller => :votos, :action => :vote_down, :id => suggestion.id %></li>
-	<% end %>
-</ul>
-<% if usuario_signed_in?%>
-<h2>Sugira Atributos</h2>
-	<%= form_for([@image, @image.suggestions.build]) do |f| %>
-		<% @image.atributos.each do |atributo| %>
-				<p><%=f.label atributo.nome %>: <%= f.text_field :sugestao%></p>
+	<h2 id="templatemo_titulo_imagem">Times Square</h2>
+<div class="product_detail_left">
+	<p><small>Criado por <%= @image.usuario.nome %></small></p>
+	<%= image_tag @image.photo.url(:large) %>
+	<% if usuario_signed_in? %>
+		<% if current_usuario.id == @image.usuario.id %>
+			<p><%= link_to "Editar Imagem", edit_image_path(@image) %> | <%= link_to "Deletar Imagem", @image, :method => :delete, :confirm => "Confirmar?" %></p>
 		<% end %>
-		<p><%= f.submit %></p>
 	<% end %>
-<% end %>
+	<div id="comentarios">
+		<h2>Comentários</h2>
+		<% @image.comentarios.each do |comentario| %>
+			<div class="comentario">
+				<h4><%= comentario.titulo %></h4>
+				<small><%= comentario.usuario.nome %> disse:</small>
+				<p><%= comentario.conteudo %></p>
+				<% if usuario_signed_in? &&  current_usuario.id == comentario.usuario.id%>
+					<%= link_to "Apagar comentário",	[@image, comentario], :method => :delete, :confirm => "Confirmar?" %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+	<% if usuario_signed_in? %>
+	<div id="comente">
+	<h2>Comente</h2>
+		<%= form_for([@image, @image.comentarios.build]) do |f| %>
+			<p><%= f.label :titulo %><br />
+			<%= f.text_field :titulo %></p>
 
-<h2>Comentários</h2>
-<% @image.comentarios.each do |comentario| %>
-	<h4><%= comentario.titulo %></h4>
-	<small><%= comentario.usuario.nome %> disse:</small>
-	<p><%= comentario.conteudo %></p>
-	<% if usuario_signed_in? &&  current_usuario.id == comentario.usuario.id%>
-			<%= link_to "Apagar comentário",	[@image, comentario], :method => :delete, :confirm => "Confirmar?" %>
-	<% end %>
-<% end %>
-
-<% if usuario_signed_in? %>
-<h2>Comente</h2>
-	<%= form_for([@image, @image.comentarios.build]) do |f| %>
-		<p><%= f.label :titulo %><br />
-		<%= f.text_field :titulo %></p>
-
-		<p><%= f.label :conteudo %><br />
-		<%= f.text_area :conteudo %></p>
+			<p><%= f.label :conteudo %><br />
+			<%= f.text_area :conteudo %></p>
 	
-		<p><%= f.submit %></p>
+			<p><%= f.submit %></p>
+		<% end %>
 	<% end %>
-<% end %>
+	</div>
+</div>
+
+<div class="product_detail_right"> 
+	<h2>Atributos</h2>
+		<ul>
+			<% @image.suggestions.each do |suggestion| %>
+				<li><strong><%= suggestion.atributo.nome %></strong>: <%= suggestion.sugestao %> - <%= suggestion.usuario.nome %> - <%= link_to "Vote up", :controller => :votos, :action => :vote_up, :id => suggestion.id, :image_id => @image.id %>
+<%= link_to "Vote down", :controller => :votos, :action => :vote_down, :id => suggestion.id, :image_id => @image.id %></li>
+			<% end %>
+		</ul>
+		<% if usuario_signed_in?%>
+		<h2>Sugira Atributos</h2>
+			<%= form_for([@image, @image.suggestions.build]) do |f| %>
+				<% @image.atributos.each do |atributo| %>
+					<p><%=f.label atributo.nome %>: <%= f.text_field :sugestao%></p>
+				<% end %>
+				<p><%= f.submit %></p>
+			<% end %>
+		<% end %>
+
+</div>
+</div>
 
