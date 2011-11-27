@@ -17,7 +17,7 @@ Scii::Application.routes.draw do
 	resources :votos
 
 	match '/vote_up', :controller => 'votos', :action => 'vote_up'
-	map.votos '/vote_down', :controller => 'votos', :action => 'vote_down'
+	match '/vote_down', :controller => 'votos', :action => 'vote_down'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

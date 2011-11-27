@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111126192144) do
+ActiveRecord::Schema.define(:version => 20111127002514) do
 
   create_table "atributos", :force => true do |t|
     t.string   "nome"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20111126192144) do
   create_table "votos", :id => false, :force => true do |t|
     t.integer "usuario_id"
     t.integer "suggestion_id"
+    t.boolean "value"
   end
 
   add_index "votos", ["suggestion_id"], :name => "index_votos_on_suggestion_id"

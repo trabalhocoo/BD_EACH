@@ -1,12 +1,12 @@
 class VotosController < ApplicationController
 
 	def vote_up
-		check = Voto.find(:first, :conditions => ["usuario_id = ? AND suggestion_id = ?", session[:usuario_id], params[:id]])
+		check = Voto.find(:first, :conditions => ["usuario_id = ? AND suggestion_id = ?", current_usuario.id, params[:id]])
 		suggestion = Suggestion.find(params[:id])
 		if check.nil?
 			suggestion_vote = Voto.new
 			suggestion_vote.suggestion_id = params[:id]
-			suggestion_vote.usuario_id = session[:usario_id]
+			suggestion_vote.usuario_id = current_usuario.id
 			suggestion_vote.value = true
 			suggestion_vote.save
 			suggestion.pontuacao += 1
@@ -24,12 +24,12 @@ class VotosController < ApplicationController
 	end
 
 	def vote_down
-		check = Voto.find(:first, :conditions => ["usuario_id = ? AND suggestion_id = ?", session[:usuario_id], params[:id]])
+		check = Voto.find(:first, :conditions => ["usuario_id = ? AND suggestion_id = ?", current_usuario.id, params[:id]])
 		suggestion = Suggestion.find(params[:id])
 		if check.nil?
 			suggestion_vote = Voto.new
 			suggestion_vote.suggestion_id = params[:id]
-			suggestion_vote.usuario_id = session[:usuario_id]
+			suggestion_vote.usuario_id = current_usuario.id
 			suggestion_vote.value = true
 			suggestion_vote.save
 			suggestion.pontuacao -= 1
