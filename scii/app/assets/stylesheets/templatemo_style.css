@@ -86,6 +86,29 @@ h4 {
 	color: #9f1a04;
 }
 
+h5 {
+	margin: 0 0 10px 0;
+	padding: 10px 0;
+	font-size: 20px;
+	font-weight: bold;
+	color: #686b53;
+}
+
+h6 {
+	margin: 0 0 10px 0;
+	padding: 10px 0;
+	font-size: 20px;
+	font-weight: bold;
+	color: #686b53;
+}
+
+h7 {
+	margin: 0 0 5px 0;
+	padding: 0px;
+	font-size: 18px;
+	color:#0066CC;
+}
+
 .image_wrapper {
 	margin-top: 3px;
 	margin-bottom: 5px;

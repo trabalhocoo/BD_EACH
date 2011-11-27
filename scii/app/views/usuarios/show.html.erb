@@ -2,14 +2,14 @@
 <div id="templatemo_content">
 <table cellspacing="30">
 <tr>
-	<td><p id="templatemo_titulo_imagem"><%= @usuario.nome %></p></td>
+	<td><p id="templatemo_titulo_imagem"><h1>Página de <%= @usuario.nome %></h1></p></td>
 </tr>
 
 <tr>
 <td>
 	<table width="500" border="0" cellspacing="10">
 		<% @img = 0 %>
-		<tr ><td><h2>Imagens</h2></td></tr>
+		<tr ><td><h2>Imagens | </h2> </td><td><h2><%= link_to "Adicionar Imagem", new_image_path() %></h2></td></tr>
 		<% @image.each do |image| %>
 			<% @img += 1 %>
 			<% if @img % 2 == 1%>
@@ -27,10 +27,15 @@
 	<% if usuario_signed_in? %>				
 			<% @atributo.each do |atributo| %>
 				<% if current_usuario.id == atributo.usuario_id%>
-					<tr><td><%= atributo.nome %> - <%= link_to "Editar Atributo", edit_atributo_path(atributo) %></td></tr>
+					<tr><td><h6><%= atributo.nome %> - <%= link_to "Editar Atributo", edit_atributo_path(atributo) %></h6></td></tr>
 				<% end %>
 			<% end %>		
 	<% end %>
+	<tr>
+	<td>	
+		<h5><%= link_to "Criar Atributos", new_atributo_path() %></h5>
+	</td>
+	</tr>
 	</table>
 </td>
 </tr>
