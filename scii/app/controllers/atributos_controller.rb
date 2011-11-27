@@ -29,6 +29,13 @@ class AtributosController < ApplicationController
 		@atributo = current_usuario.atributos.find(params[:id])
 	end
 
+	def update
+		@atributo = current_usuario.atributos.find(params[:id])
+		@atributo.update_attributes(params[:atributo])
+		flash[:notice] = "Atributo Atualizado."
+		redirect_to current_usuario
+	end
+
 	def show
 		@atributo = Atributo.find(params[:id])
 	end

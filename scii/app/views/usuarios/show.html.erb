@@ -1,20 +1,38 @@
 <% @title = @usuario.nome %>
+<div id="templatemo_content">
+<table cellspacing="30">
+<tr>
+	<td><p id="templatemo_titulo_imagem"><%= @usuario.nome %></p></td>
+</tr>
 
-<h2><%= @usuario.nome %></h2>
-
-<ul>
-	<% @image.each do |image| %>
-		<li><%= link_to (image_tag image.photo.url(:small)), :controller => "images", :action => "show", :id => image.id %></li>	
-	<% end %>
-</ul>
-
-<% if usuario_signed_in? %>
-		<ul>
-		<% @atributo.each do |atributo| %>
-			<% if current_usuario.id == atributo.usuario_id%>
-				<li><%= atributo.nome %> - <%= link_to "Editar Atributo", edit_atributo_path(atributo) %></li>
-			<% end %>
+<tr>
+<td>
+	<table width="500" border="0" cellspacing="10">
+		<% @img = 0 %>
+		<tr ><td><h2>Imagens</h2></td></tr>
+		<% @image.each do |image| %>
+			<% @img += 1 %>
+			<% if @img % 2 == 1%>
+				<tr><td><%= link_to (image_tag image.photo.url(:small)), :controller => "images", :action => "show", :id => image.id %></td>	
+			<% else %>
+				<td><%= link_to (image_tag image.photo.url(:small)), :controller => "images", :action => "show", :id => image.id %></td></tr>
+			<% end %>	
 		<% end %>
-		</ul>
-<% end %>
-
+		
+	</table>
+</td>
+<td align="top">
+        <table>
+	<tr><td><h2>Atributos</h2></td></tr>
+	<% if usuario_signed_in? %>				
+			<% @atributo.each do |atributo| %>
+				<% if current_usuario.id == atributo.usuario_id%>
+					<tr><td><%= atributo.nome %> - <%= link_to "Editar Atributo", edit_atributo_path(atributo) %></td></tr>
+				<% end %>
+			<% end %>		
+	<% end %>
+	</table>
+</td>
+</tr>
+</table>
+</div>
