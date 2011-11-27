@@ -43,8 +43,7 @@
 	<h2>Atributos</h2>
 		<ul>
 			<% @image.suggestions.each do |suggestion| %>
-				<li><strong><%= suggestion.atributo.nome %></strong>: <%= suggestion.sugestao %> - <%= suggestion.usuario.nome %> - <%= link_to "Vote up", :controller => :votos, :action => :vote_up, :id => suggestion.id, :image_id => @image.id %>
-<%= link_to "Vote down", :controller => :votos, :action => :vote_down, :id => suggestion.id, :image_id => @image.id %></li>
+				<li><strong><%= suggestion.atributo.nome %></strong>: <%= suggestion.sugestao %> - <%= suggestion.usuario.nome %> - <%= render :partial => "voto_form", :locals => {:suggestions }  %></li>
 			<% end %>
 		</ul>
 		<% if usuario_signed_in?%>
