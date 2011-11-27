@@ -15,7 +15,7 @@ Scii::Application.routes.draw do
 	end
 	resources :atributos
 	resources :votos
-
+	
 	match '/vote_up', :controller => 'votos', :action => 'vote_up'
 	match '/vote_down', :controller => 'votos', :action => 'vote_down'
   # The priority is based upon order of creation:
