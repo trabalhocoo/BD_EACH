@@ -12,11 +12,13 @@ class VotosController < ApplicationController
 			suggestion_vote.save
 			suggestion.pontuacao += 1
 			suggestion.save
+			redirect_to @image
 		elsif check.value == false
 			check.value = true
 			check.save
 			suggestion.pontuacao += 2
 			suggestion.save
+			redirect_to @image
 		else
 			redirect_to @image, :alert => "Você já votou!"
 		end
@@ -34,10 +36,12 @@ class VotosController < ApplicationController
 			suggestion_vote.save
 			suggestion.pontuacao -= 1
 			suggestion.save
+			redirect_to @image
 		elsif check.value == false
 			check.save
 			suggestion.pontuacao -= 2
 			suggestion.save
+			redirect_to @image
 		else
 			redirect_to @image,  :alert => "Você já votou!"
 		end
