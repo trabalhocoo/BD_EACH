@@ -48,6 +48,7 @@
 		<%= render :partial => "sugestoes" %>
 		<% if usuario_signed_in?%>
 		<h2>Sugira Atributos</h2>
+		<%= @check %>
 			<%= form_for([@image, @image.suggestions.build]) do |f| %>
 				<% @image.atributos.each do |atributo| %>
 					<p><%=f.label atributo.nome %>: <%= f.text_field :sugestao%></p>

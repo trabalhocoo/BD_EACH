@@ -18,6 +18,7 @@ Scii::Application.routes.draw do
 	
 	match '/vote_up', :controller => 'votos', :action => 'vote_up'
 	match '/vote_down', :controller => 'votos', :action => 'vote_down'
+	match '/check', :controller => 'images', :action => 'check'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
