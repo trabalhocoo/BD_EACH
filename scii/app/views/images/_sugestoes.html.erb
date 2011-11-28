@@ -6,7 +6,7 @@
 				<td>Pontuacao</td>
 				<td>quem sugeriu<td>
 			</tr>
-			<% @image.suggestions.each do |suggestion| %>
+			<% @suggestion.each do |suggestion| %>
 				<tr>
 					<td><strong><%= suggestion.atributo.nome %></strong></td>
 					<td><%= suggestion.sugestao %></td>
