@@ -51,6 +51,11 @@ class ImagesController < ApplicationController
 	def show
 		@image = Image.find(params[:id])
 		@suggestion = @image.suggestions
+		@atributo = @image.atributos
+	end
+
+	def check
+		@check = Suggestion.find(:first, :conditions => ["usuario_id = ? AND atributo_id = ?", current_usuario.id, params[:id]])
 	end
 
 end
