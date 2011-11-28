@@ -1,9 +1,9 @@
 <% @title = @usuario.nome %>
 <div id="templatemo_content">
-<h2 id="templatemo_titulo_imagem">Página de <%= @usuario.nome %></h2>
+<h2 id="templatemo_titulo_imagem">Página de <%= @usuario.nome %></h2></br>
 
 <div class="product_detail_left">
-		<table>
+		<table  cellspacing="10px">
 		<% @img = 0 %>
 		<td><h2>Imagens | </h2></td><% if current_usuario.id == @usuario.id  %><td><h2><%= link_to "Adicionar Imagem", new_image_path() %></h2></td><%end%>
 		<% @image.each do |image| %>

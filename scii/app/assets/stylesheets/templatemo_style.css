@@ -109,6 +109,14 @@ h7 {
 	color:#0066CC;
 }
 
+h8 {
+	margin: 0 0 10px 0;
+	padding: 9px;
+	font-size: 20px;
+	font-weight: bold;
+	color:#0066CC;
+}
+
 .image_wrapper {
 	margin-top: 3px;
 	margin-bottom: 5px;
@@ -320,7 +328,7 @@ font-size:8px
 }
 
 #templatemo_content {
-	width: 950px;
+	width: 1300px;
 	margin: 0 auto;
 	padding: 30px 15px;
 	background: #ffffff;
@@ -385,8 +393,8 @@ font-size:8px
 
 .product_detail_right {
 	float: left;
-	margin:0 0 0 20px;
-	width: 330px;
+	margin:0 0 0 30px;
+	width: 500px;
 }
 
 .product_detail_right h3 {
@@ -534,6 +542,7 @@ font-size:8px
 
 /* imagem show */
 #tabela_sugestoes td{
-	padding: 5px
+	text-align:center;
+	padding: 10px
 }
 .imagem_sugestao_titulo{ font-weight: bold}

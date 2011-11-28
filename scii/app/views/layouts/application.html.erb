@@ -25,7 +25,7 @@
 		<div id="menu_usuario">
 			<% if usuario_signed_in? %>
 				
-				<p>Olá <%= link_to current_usuario.nome, usuario_path(current_usuario, :view => "show") %> | <%= link_to "Sair", destroy_usuario_session_path, :method => :delete %></p>
+				<p><font size= "4 " face= "Times New Roman">Olá </font> <h8><%= link_to current_usuario.nome, usuario_path(current_usuario, :view => "show") %> | <%= link_to "Sair", destroy_usuario_session_path, :method => :delete %></h8></p>
 			<% else %>
 				<p><%= link_to "Entrar", new_usuario_session_path %> | <%= link_to "Cadastre-se", new_usuario_registration_path %></p>
 			<% end %>
