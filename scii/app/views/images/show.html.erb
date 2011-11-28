@@ -3,23 +3,28 @@
 
 	<h2 id="templatemo_titulo_imagem"><%= @image.titulo %></h2>
 <div class="product_detail_left">
-	<p><small>Criado por <%= @image.usuario.nome %></small></p>
+	<p><h5>Criado por <%= @image.usuario.nome %></h5></small></p>
 	<%= image_tag @image.photo.url(:large) %>
 	<% if usuario_signed_in? %>
 		<% if current_usuario.id == @image.usuario.id %>
-			<p><%= link_to "Editar Imagem", edit_image_path(@image) %> | <%= link_to "Deletar Imagem", @image, :method => :delete, :confirm => "Confirmar?" %></p>
+			<p><h6><%= link_to "Editar Imagem", edit_image_path(@image) %> | <%= link_to "Deletar Imagem", @image, :method => :delete, :confirm => "Confirmar?" %></h6></p>
 		<% end %>
 	<% end %>
 	<div id="comentarios">
 		<h2>Comentários</h2>
+		<% @local = 0%>
 		<% @image.comentarios.each do |comentario| %>
-			<div class="comentario">
-				<h4><%= comentario.titulo %></h4>
-				<small><%= comentario.usuario.nome %> disse:</small>
-				<p><%= comentario.conteudo %></p>
+			<% if @local != 0 %></br><% end %>
+			<% @local += 1 %>
+			<div class="product_img_wrapper">
+				<table >
+				<tr><td><h7><%= comentario.usuario.nome %> disse:</h7> <font size= "4 " face= "Times New Roman"><%= comentario.titulo %></font></td></tr>
+		
+				<tr><td><font size= "4 " face= "Times New Roman"><%= comentario.conteudo %></font></td></tr>
 				<% if usuario_signed_in? &&  current_usuario.id == comentario.usuario.id%>
-					<%= link_to "Apagar comentário",	[@image, comentario], :method => :delete, :confirm => "Confirmar?" %>
+					<tr><td><h7><%= link_to "Apagar comentário",	[@image, comentario], :method => :delete, :confirm => "Confirmar?" %></h7></td></tr>
 				<% end %>
+				</table>
 			</div>
 		<% end %>
 	</div>
@@ -27,10 +32,10 @@
 	<div id="comente">
 	<h2>Comente</h2>
 		<%= form_for([@image, @image.comentarios.build]) do |f| %>
-			<p><%= f.label :titulo %><br />
+			<p><h6><%= f.label :titulo %></h6>
 			<%= f.text_field :titulo %></p>
 
-			<p><%= f.label :conteudo %><br />
+			<p><h6><%= f.label :conteudo %></h6>
 			<%= f.text_area :conteudo %></p>
 	
 			<p><%= f.submit %></p>

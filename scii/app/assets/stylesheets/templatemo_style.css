@@ -319,26 +319,6 @@ font-size:8px
 	margin-left: 10px;
 }
 
-#templatemo_follow_me .social_network li .facebook {
-	background: url(ilustracao/facebook_icon.png) no-repeat;
-}
-
-#templatemo_follow_me .social_network li .twitter {
-	background: url(ilustracao/twitter_icon.png) no-repeat;
-}
-
-#templatemo_follow_me .social_network li .linkin {
-	background: url(ilustracao/linkin_icon.png) no-repeat;
-}
-
-#templatemo_follow_me .social_network li .flickr {
-	background: url(ilustracao/flickr_icon.png) no-repeat;
-}
-
-/* end of menu */
-
-/* content */
-
 #templatemo_content {
 	width: 950px;
 	margin: 0 auto;

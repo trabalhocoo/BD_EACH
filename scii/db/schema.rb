@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20111127181657) do
 
   create_table "suggestions", :force => true do |t|
     t.string   "sugestao"
-    t.decimal  "pontuacao"
+    t.decimal  "pontuacao",   :default => 0.0
     t.integer  "image_id"
     t.integer  "atributo_id"
     t.integer  "usuario_id"

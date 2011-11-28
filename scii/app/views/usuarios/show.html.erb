@@ -3,10 +3,11 @@
 <h2 id="templatemo_titulo_imagem">Página de <%= @usuario.nome %></h2>
 
 <div class="product_detail_left">
-		<% @img = 0 %>
-		<h2>Imagens</h2><% if current_usuario.id == @usuario.id  %><h2><%= link_to "Adicionar Imagem", new_image_path() %></h2><%end%>
-		<% @image.each do |image| %>
 		<table>
+		<% @img = 0 %>
+		<td><h2>Imagens | </h2></td><% if current_usuario.id == @usuario.id  %><td><h2><%= link_to "Adicionar Imagem", new_image_path() %></h2></td><%end%>
+		<% @image.each do |image| %>
+		
 			<% @img += 1 %>
 			<% if @img % 2 == 1%>
 				<tr><td><%= link_to (image_tag image.photo.url(:small)), :controller => "images", :action => "show", :id => image.id %></td>	

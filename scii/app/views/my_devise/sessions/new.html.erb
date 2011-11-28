@@ -7,13 +7,10 @@
       <td width="279">
 	<h2> Login  </h2>
 
-
-        <p>&nbsp;</p>
-        Email:
+        <h5>Email:</h5>
         <div><%= f.email_field :email %></div>
 
-     	<p>&nbsp;</p>
-        Password:
+        <h5>Password:</h5>
         <div><%= f.password_field :password %></div>
       </td>
     </tr>
@@ -24,7 +21,7 @@
 
 
     <tr>
-      <td><div><%= render :partial => "devise/shared/links" %></div></td>
+      <td><div><h7><%= render :partial => "devise/shared/links" %></h7></div></td>
     </tr>	
     
     <% end %>
