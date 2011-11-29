@@ -3,28 +3,25 @@
 
 	<h2 id="templatemo_titulo_imagem"><%= @image.titulo %></h2>
 <div class="product_detail_left">
-	<p><h5>Criado por <%= @image.usuario.nome %></h5></small></p>
+	<p><small>Criado por <%= link_to @image.usuario.nome, usuario_path(@image.usuario) %></small></p>
 	<%= image_tag @image.photo.url(:large) %>
 	<% if usuario_signed_in? %>
 		<% if current_usuario.id == @image.usuario.id %>
-			<p><h6><%= link_to "Editar Imagem", edit_image_path(@image) %> | <%= link_to "Deletar Imagem", @image, :method => :delete, :confirm => "Confirmar?" %></h6></p>
+			<p><%= link_to "Editar Imagem", edit_image_path(@image) %> | <%= link_to "Deletar Imagem", @image, :method => :delete, :confirm => "Confirmar?" %></p>
 		<% end %>
 	<% end %>
 	<div id="comentarios">
 		<h2>Comentários</h2>
 		<% @local = 0%>
 		<% @image.comentarios.each do |comentario| %>
-			<% if @local != 0 %></br><% end %>
+			<% if @local != 0 %><% end %>
 			<% @local += 1 %>
 			<div class="product_img_wrapper">
-				<table >
-				<tr><td><h7><%= comentario.usuario.nome %> disse:</h7> <font size= "4 " face= "Times New Roman"><%= comentario.titulo %></font></td></tr>
-		
-				<tr><td><font size= "4 " face= "Times New Roman"><%= comentario.conteudo %></font></td></tr>
+				<%= comentario.usuario.nome %> disse:<%= comentario.titulo %>
+				<%= comentario.conteudo %>
 				<% if usuario_signed_in? &&  current_usuario.id == comentario.usuario.id%>
-					<tr><td><h7><%= link_to "Apagar comentário",	[@image, comentario], :method => :delete, :confirm => "Confirmar?" %></h7></td></tr>
+					<%= link_to "Apagar comentário",	[@image, comentario], :method => :delete, :confirm => "Confirmar?" %>
 				<% end %>
-				</table>
 			</div>
 		<% end %>
 	</div>
@@ -46,21 +43,6 @@
 
 <div class="product_detail_right"> 
 		<%= render :partial => "sugestoes" %>
-		<% if usuario_signed_in?%>
-			<h2>Sugira Atributos</h2>
-			<table>
-				<% @image.atributos.each do |atributo| %>
-					<% if check_suggestions(atributo.id) == nil %> 
-						<%= form_for([@image, @image.suggestions.build]) do |f| %>
-							<tr><td><h7><%=f.label atributo.nome %>:</h7></td> <td><%= f.text_field :sugestao%> <%= f.submit "Criar Sugestão" %></td></tr>
-							<%= f.hidden_field :atributo_id, :value => atributo.id %>
-							<%= f.hidden_field :usuario_id, :value => current_usuario.id %>
-							<%= f.hidden_field :image_id, :value => @image.id %>
-						<% end %>
-						<tr><td></td></tr>
-					<% end %>
-				<% end %>
-			</table>
-		<% end %>
+		<%= render :partial => "sugerir" %>
 </div>
 </div>
