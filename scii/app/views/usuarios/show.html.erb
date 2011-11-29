@@ -5,16 +5,20 @@
 <div class="product_detail_left">
 		<table  cellspacing="10px">
 		<% @img = 0 %>
-		<td><h2>Imagens | </h2></td><% if current_usuario.id == @usuario.id  %><td><h2><%= link_to "Adicionar Imagem", new_image_path() %></h2></td><%end%>
-		<% @image.each do |image| %>
-		
+		<td><h2>Imagens | </h2></td>
+		<% if current_usuario.id == @usuario.id  %>
+			<td><h2><%= link_to "Adicionar Imagem", new_image_path() %></h2></td>
+			<td><h2></h2></td>
+		<%end%>
+
+		<% @image.each do |image| %>		
+			
+			<% if @img % 3 == 0%><tr><% end %>
+				<td align="center"><%= link_to (image_tag image.photo.url(:small)), :controller => "images", :action => "show", :id => image.id %></td>
+			<% if @img % 3 == 2%></tr><% end %>	
 			<% @img += 1 %>
-			<% if @img % 2 == 1%>
-				<tr><td><%= link_to (image_tag image.photo.url(:small)), :controller => "images", :action => "show", :id => image.id %></td>	
-			<% else %>
-				<td><%= link_to (image_tag image.photo.url(:small)), :controller => "images", :action => "show", :id => image.id %></td></tr>
-			<% end %>	
 		<% end %>
+
 		</table>
 </div>
 <div class="product_detail_right">

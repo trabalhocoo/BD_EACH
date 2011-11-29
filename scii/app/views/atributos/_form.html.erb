@@ -6,7 +6,9 @@
 	</tr>
 
     <tr>
-    <td><div><%= f.submit "Criar" %></div></td>
+    <td><div><%= f.submit "Criar" %> <font size= "4 " face= "Times New Roman" color="#686b53"><b>
+		 | <%= link_to "Voltar", usuario_path(current_usuario, :view => "show") %>
+    </b></font></div></td>
     </tr>
     <% end %>
 
