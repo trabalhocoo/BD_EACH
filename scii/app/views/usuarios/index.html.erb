@@ -1,7 +1,7 @@
 <div id="templatemo_content">
 	<ul>
 			<% @usuario.each do |user| %>
-				<li><%= link_to user.nome, usuario_path(user) %></li>		
+				<li><h1><%= link_to user.nome, usuario_path(user) %></h1> <h2>|</h2> <h3><%= link_to user.pontuacao, usuario_path(user) %></h3></li>
 			<% end %>
 	</ul>
 </div>

@@ -13,6 +13,7 @@ class VotosController < ApplicationController
 			suggestion.pontuacao += 1
 			@image.pontuacao += 1
 			@image.save
+			current_usuario.save
 			suggestion.save
 			redirect_to @image
 		elsif check.value == false
@@ -21,6 +22,7 @@ class VotosController < ApplicationController
 			suggestion.pontuacao += 2
 			@image.pontuacao += 2
 			@image.save
+			current_usuario.save
 			suggestion.save
 			redirect_to @image
 		else
@@ -41,6 +43,7 @@ class VotosController < ApplicationController
 			suggestion.pontuacao -= 1
 			@image.pontuacao -= 1
 			@image.save
+			current_usuario.save
 			suggestion.save
 			redirect_to @image
 		elsif check.value == false
@@ -48,6 +51,7 @@ class VotosController < ApplicationController
 			suggestion.pontuacao -= 2
 			@image.pontuacao -= 2
 			@image.save
+			current_usuario.save
 			suggestion.save
 			redirect_to @image
 		else

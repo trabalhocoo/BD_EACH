@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111127181657) do
+ActiveRecord::Schema.define(:version => 20111129211656) do
 
   create_table "atributos", :force => true do |t|
     t.string   "nome"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20111127181657) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "pontuacao",                             :default => 0
   end
 
   add_index "usuarios", ["email"], :name => "index_usuarios_on_email", :unique => true
