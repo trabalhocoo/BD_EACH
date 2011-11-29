@@ -2,7 +2,6 @@ class UsuariosController < ApplicationController
 
 	def index
 		@usuario = Usuario.all
-		@imagem = Image.all
 	end
 
 	def new

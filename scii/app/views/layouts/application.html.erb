@@ -17,26 +17,23 @@
 		        
 			<div id="templatemo_menu">
 				<ul>
-					<li><%= link_to "Home", :root %></li>
-					<li><%= link_to "Imagens", :images %></li>
+					<li><span><%= link_to "Home", :root %></span></li>				
+					<% if usuario_signed_in? %>
+						<li><span><%= link_to "Imagens", :images %></span></li>
+						<li><span><%= link_to "Usuarios", :usuarios %></span></li>
+						<li><span><%= link_to current_usuario.nome, usuario_path(current_usuario, :view => "show") %></span></li>
+						<li><span><%= link_to "Sair", destroy_usuario_session_path, :method => :delete %></span></li>
+					<% else %>
+						<li><%= link_to "Entrar", new_usuario_session_path %></li>
+						<li><%= link_to "Cadastre-se", new_usuario_registration_path %></li>
+					<% end %>
 				</ul> 
 	  		</div> 
 		</div>
-		<div id="menu_usuario">
-			<% if usuario_signed_in? %>
-				
-				<p><font size= "4 " face= "Times New Roman">Olá </font> <h8><%= link_to current_usuario.nome, usuario_path(current_usuario, :view => "show") %> | <%= link_to "Sair", destroy_usuario_session_path, :method => :delete %></h8></p>
-			<% else %>
-				<p><%= link_to "Entrar", new_usuario_session_path %> | <%= link_to "Cadastre-se", new_usuario_registration_path %></p>
-			<% end %>
-		</div>   
 	</div>
-<% flash.each do |key, value| %>
-	<div class='flash' id='<%= key %>'>
-		<%= value %>
-	</div>
-<% end %>
+
 	<%= yield %>
+
 	</body>
 </html>
 
