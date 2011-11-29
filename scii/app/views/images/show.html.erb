@@ -47,17 +47,20 @@
 <div class="product_detail_right"> 
 		<%= render :partial => "sugestoes" %>
 		<% if usuario_signed_in?%>
-		<h2>Sugira Atributos</h2>
-		<table>
-		<%= @check %>
-			<%= form_for([@image, @image.suggestions.build]) do |f| %>
+			<h2>Sugira Atributos</h2>
+			<table>
 				<% @image.atributos.each do |atributo| %>
-					<tr><td><h7><%=f.label atributo.nome %>:</h7></td> <td><%= f.text_field :sugestao%></td></tr>
+					<% if check_suggestions(atributo.id) == nil %> 
+						<%= form_for([@image, @image.suggestions.build]) do |f| %>
+							<tr><td><h7><%=f.label atributo.nome %>:</h7></td> <td><%= f.text_field :sugestao%> <%= f.submit "Criar Sugestão" %></td></tr>
+							<%= f.hidden_field :atributo_id, :value => atributo.id %>
+							<%= f.hidden_field :usuario_id, :value => current_usuario.id %>
+							<%= f.hidden_field :image_id, :value => @image.id %>
+						<% end %>
+						<tr><td></td></tr>
+					<% end %>
 				<% end %>
-				<tr><td></td></tr>
-				<tr><td><%= f.submit "Criar Sugestão" %></td></tr>
-			<% end %>
-		</table>
+			</table>
 		<% end %>
 </div>
 </div>
