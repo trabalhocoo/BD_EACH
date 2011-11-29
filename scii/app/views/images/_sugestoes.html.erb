@@ -6,7 +6,7 @@
 				<td>Score</td>
 				<td>sugerido por<td>
 			</tr>
-			<% @suggestion.each do |suggestion| %>
+			<% @image.suggestions.each do |suggestion| %>
 				<tr>
 					<td class="atributo_nome"><%= suggestion.atributo.nome %></td>
 					<td><%= suggestion.sugestao %></td>

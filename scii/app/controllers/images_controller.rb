@@ -50,7 +50,6 @@ class ImagesController < ApplicationController
 	
 	def show
 		@image = Image.find(params[:id])
-		@suggestion = @image.suggestions
 		@user_suggestion = current_usuario.suggestions
 		@atributo = @image.atributos
 	end
