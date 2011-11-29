@@ -10,35 +10,8 @@
 			<p><%= link_to "Editar Imagem", edit_image_path(@image) %> | <%= link_to "Deletar Imagem", @image, :method => :delete, :confirm => "Confirmar?" %></p>
 		<% end %>
 	<% end %>
-	<div id="comentarios">
-		<h2>Comentários</h2>
-		<% @local = 0%>
-		<% @image.comentarios.each do |comentario| %>
-			<% if @local != 0 %><% end %>
-			<% @local += 1 %>
-			<div class="product_img_wrapper">
-				<%= comentario.usuario.nome %> disse:<%= comentario.titulo %>
-				<%= comentario.conteudo %>
-				<% if usuario_signed_in? &&  current_usuario.id == comentario.usuario.id%>
-					<%= link_to "Apagar comentário",	[@image, comentario], :method => :delete, :confirm => "Confirmar?" %>
-				<% end %>
-			</div>
-		<% end %>
-	</div>
-	<% if usuario_signed_in? %>
-	<div id="comente">
-	<h2>Comente</h2>
-		<%= form_for([@image, @image.comentarios.build]) do |f| %>
-			<p><h6><%= f.label :titulo %></h6>
-			<%= f.text_field :titulo %></p>
-
-			<p><h6><%= f.label :conteudo %></h6>
-			<%= f.text_area :conteudo %></p>
-	
-			<p><%= f.submit %></p>
-		<% end %>
-	<% end %>
-	</div>
+	<%= render :partial => "comentarios" %>
+	<%= render :partial => "comente" %>
 </div>
 
 <div class="product_detail_right"> 

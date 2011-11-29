@@ -1,0 +1,15 @@
+	<div id="comentarios">
+		<h2>Comentários</h2>
+		<% @local = 0%>
+		<% @image.comentarios.each do |comentario| %>
+			<% if @local != 0 %><% end %>
+			<% @local += 1 %>
+			<div class="product_img_wrapper">
+				<%= comentario.usuario.nome %> disse:<%= comentario.titulo %>
+				<%= comentario.conteudo %>
+				<% if usuario_signed_in? &&  current_usuario.id == comentario.usuario.id%>
+					<%= link_to "Apagar comentário",	[@image, comentario], :method => :delete, :confirm => "Confirmar?" %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>

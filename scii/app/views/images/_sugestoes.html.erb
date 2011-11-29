@@ -3,12 +3,12 @@
 			<tr class="imagem_sugestao_titulo">
 				<td>Atributo</td>
 				<td>Sugestão</td>
-				<td>Pontuacao</td>
-				<td>quem sugeriu<td>
+				<td>Score</td>
+				<td>sugerido por<td>
 			</tr>
 			<% @suggestion.each do |suggestion| %>
 				<tr>
-					<td><%= suggestion.atributo.nome %></td>
+					<td class="atributo_nome"><%= suggestion.atributo.nome %></td>
 					<td><%= suggestion.sugestao %></td>
 					<td><%= suggestion.pontuacao %></td>
 					<td><%= suggestion.usuario.nome %></td>

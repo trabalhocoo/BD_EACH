@@ -25,6 +25,8 @@ img {
 	font-size: 12px;
 }
 
+ul li{ list-style:none}
+
 .cleaner {
 	clear: both;
 	width: 100%;
@@ -526,7 +528,40 @@ font-size:8px
 }
 
 /* imagem show */
+#sugerir_atributos{
+	margin:10px 0 0 0;
+	float:left;
+}
+
+#sugerir_atributos ul {
+	padding:0
+
+}
+
+#sugerir_atributos form label{
+	font-size: 14px;
+	font-weight: bold;
+	color:##01443F;
+}
+
+#sugerir_atributos form input{
+	padding:5px 7px
+}
+
+#sugerir_atributos form input#suggestion_sugestao{
+	width:150px
+}
+
 #tabela_sugestoes td{
 	text-align:center;
 }
-.imagem_sugestao_titulo{ font-weight: bold}
+
+.atributo_nome{
+	font-weight:bold;
+}
+
+.imagem_sugestao_titulo td{ 
+	font-weight: bold;
+	padding:3px 2px;
+	background:#ccc;
+}

@@ -2,13 +2,15 @@
 		<% if usuario_signed_in?%>
 			<h2>Sugira Atributos</h2>
 				<% @image.atributos.each do |atributo| %>
-					<% if check_suggestions(atributo.id) == nil %> 
+					<% if check_suggestions(atributo.id) == nil %>
+						<ul>
 						<%= form_for([@image, @image.suggestions.build]) do |f| %>
-							<%=f.label atributo.nome %>:</h7><%= f.text_field :sugestao%> <%= f.submit "Criar Sugestão" %>
+							<li><%=f.label atributo.nome %><br \><%= f.text_field :sugestao%> <%= f.submit "Criar Sugestão" %></li>
 							<%= f.hidden_field :atributo_id, :value => atributo.id %>
 							<%= f.hidden_field :usuario_id, :value => current_usuario.id %>
 							<%= f.hidden_field :image_id, :value => @image.id %>
 						<% end %>
+						</ul>
 					<% end %>
 				<% end %>
 		<% end %>

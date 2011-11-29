@@ -1,0 +1,14 @@
+<% if usuario_signed_in? %>
+	<div id="comente">
+	<h2>Comente</h2>
+		<%= form_for([@image, @image.comentarios.build]) do |f| %>
+			<p><h6><%= f.label :titulo %></h6>
+			<%= f.text_field :titulo %></p>
+
+			<p><h6><%= f.label :conteudo %></h6>
+			<%= f.text_area :conteudo, :size => "70x10"%></p>
+	
+			<p><%= f.submit %></p>
+		<% end %>
+	</div>
+<% end %>
