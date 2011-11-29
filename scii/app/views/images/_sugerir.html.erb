@@ -2,7 +2,7 @@
 		<% if usuario_signed_in?%>
 			<h2>Sugira Atributos</h2>
 				<% @image.atributos.each do |atributo| %>
-					<% if check_suggestions(atributo.id) == nil %>
+					<% if check_suggestions(atributo.id, @image.id) == nil %>
 						<ul>
 						<%= form_for([@image, @image.suggestions.build]) do |f| %>
 							<li><%=f.label atributo.nome %><br \><%= f.text_field :sugestao%> <%= f.submit "Criar Sugestão" %></li>
