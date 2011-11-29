@@ -1,33 +1,13 @@
 <div id="templatemo_content">
-<table cellspacing="30" >
-	<tr><td>
-	<table>
-	<tr>
-		<td><h2>Imagens</h2></td>
-	</tr>
-	
-	<tr>
-		<td><font size= "4 " face= "Times New Roman" >Clicando sobre cada uma das imagens você poderá encontrar características, opiniões a respeito delas. Caso você esteja já tenha cadastro em nosso site e esteja online, poderá comentar, sugerir e votar! </font>
-		</td>
-	</tr>
-	</td></tr></table>
-	
-	<table cellspacing="30"><tr><td align="center">
-	<% @cont_img = 0 %>
-	<% @count = @image.length %>
-
-	<% @image.each do |image| %>
-		<% if @cont_img % 7 == 0 %>
-			<tr >
-		<%end%>
-			<% @cont_img += 1%>
-			<td>
-				<%= link_to (image_tag image.photo.url(:small)), :controller => "images", :action => "show", :id => image.id %>
-			</td>
-		<% if  @cont_img == @count %>
-			</tr>
-		<%end%>
-	<% end %>
-	</td></tr></table>
-</table>
+	<div id="image_home">
+		<h2>Imagens</h2>
+		<p>Clicando sobre cada uma das imagens você poderá encontrar características, opiniões a respeito delas. Caso você esteja já tenha cadastro em nosso site e esteja online, poderá comentar, sugerir e votar!</p>
+			<% @cont_img = 0 %>
+			<% @count = @image.length %>
+			<ul id="images_lista">
+			<% @image.each do |image| %>
+				<li><%= link_to (image_tag image.photo.url(:small)), :controller => "images", :action => "show", :id => image.id %></li>
+			<% end %>
+			</ul>
+	</div>
 </div>

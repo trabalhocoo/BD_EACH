@@ -5,10 +5,11 @@
 			<% if @local != 0 %><% end %>
 			<% @local += 1 %>
 			<div class="product_img_wrapper">
-				<%= comentario.usuario.nome %> disse:<%= comentario.titulo %>
-				<%= comentario.conteudo %>
+				<p><%= link_to @image.usuario.nome, usuario_path(@image.usuario) %> disse: </p>
+				<p><%= comentario.titulo %></p>
+				<p><%= comentario.conteudo %></p>
 				<% if usuario_signed_in? &&  current_usuario.id == comentario.usuario.id%>
-					<%= link_to "Apagar comentário",	[@image, comentario], :method => :delete, :confirm => "Confirmar?" %>
+					<p><%= link_to "Apagar comentário",	[@image, comentario], :method => :delete, :confirm => "Confirmar?" %></p>
 				<% end %>
 			</div>
 		<% end %>

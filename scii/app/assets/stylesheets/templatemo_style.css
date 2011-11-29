@@ -67,7 +67,7 @@ h1 {
 h2 {
 	margin: 0 0 10px 0;
 	padding: 10px 0;
-	font-size: 30px;
+	font-size: 22px;
 	font-weight: bold;
 	color: #686b53;
 }
@@ -527,6 +527,16 @@ font-size:8px
 	font-size:14px
 }
 
+/* image home */
+#image_home ul{
+	padding:0 0 0 40px;
+	width:890px;
+}
+#image_home ul li{
+	padding:10px;
+	display:inline
+}
+
 /* imagem show */
 #sugerir_atributos{
 	margin:10px 0 0 0;
@@ -564,4 +574,21 @@ font-size:8px
 	font-weight: bold;
 	padding:3px 2px;
 	background:#ccc;
+}
+
+#comente{
+	margin:20px 0 0 0;
+}
+#comente div{
+	margin:0 0 20px 0;
+}
+#comente div label{
+	font-size:18px;
+}
+
+/* home */
+#home p{
+	font-size:22px;
+	line-height:32px;
+	margin:20px 0;
 }

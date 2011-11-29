@@ -1,11 +1,7 @@
 <div id="templatemo_content">
-	<table cellspacing = "30">
-			<tr>
+	<ul>
 			<% @usuario.each do |user| %>
-					<td><h8><%= user.nome %></h8>
-						
-					</td>
+				<li><%= link_to user.nome, usuario_path(user) %></li>		
 			<% end %>
-			</tr>
-	</table>
+	</ul>
 </div>

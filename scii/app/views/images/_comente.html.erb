@@ -2,12 +2,14 @@
 	<div id="comente">
 	<h2>Comente</h2>
 		<%= form_for([@image, @image.comentarios.build]) do |f| %>
-			<p><h6><%= f.label :titulo %></h6>
-			<%= f.text_field :titulo %></p>
-
-			<p><h6><%= f.label :conteudo %></h6>
-			<%= f.text_area :conteudo, :size => "70x10"%></p>
-	
+			<div class="titulo_comentario">
+				<%= f.label :titulo %><br>
+				<%= f.text_field :titulo %>
+			</div>
+			<div class="conteudo_comentario">
+				<%= f.label :conteudo %><br>
+				<%= f.text_area :conteudo, :size => "70x10"%>
+			</div>
 			<p><%= f.submit %></p>
 		<% end %>
 	</div>
