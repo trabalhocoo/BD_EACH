@@ -36,6 +36,13 @@ class AtributosController < ApplicationController
 		redirect_to current_usuario
 	end
 
+	def destroy
+		@atributo = current_usuario.atributos.find(params[:id])
+		@atributo.destroy
+		flash[:notice] = "Atributo foi removido"
+		redirect_to current_usuario_path	
+	end
+
 	def show
 		@atributo = Atributo.find(params[:id])
 	end

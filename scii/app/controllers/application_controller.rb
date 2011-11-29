@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
 			render :template => 'error_pages/404.html.erb', :status => 404
 		end
 
-		def check_suggestions(atributo_id)
-			check = Suggestion.find(:first, :conditions => ["usuario_id = ? AND atributo_id = ?", current_usuario.id, atributo_id])	
+		def check_suggestions(atributo_id, image_id)
+			check = Suggestion.find(:first, :conditions => ["usuario_id = ? AND atributo_id = ? AND image_id = ?", current_usuario.id, atributo_id, image_id])	
 			return check
 		end
 end
