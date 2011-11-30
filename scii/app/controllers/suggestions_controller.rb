@@ -14,4 +14,11 @@ class SuggestionsController < ApplicationController
 		redirect_to image_path(@image)
 	end
 
+	def destroy
+		@suggestion = current_usuario.suggestions.find(params[:id])
+		@suggestion.destroy
+		flash[:notice] = "Sugestao foi removida"
+		redirect_to images_path
+	end
+
 end
