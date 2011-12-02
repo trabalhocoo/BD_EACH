@@ -19,7 +19,7 @@
 				<ul>
 					<li><span><%= link_to "Home", :root %></span></li>				
 					<% if usuario_signed_in? %>
-						<li><span><%= link_to "Imagens", :images %></span></li>
+						<li><span></span></li>
 						<!--<li><span><%= link_to "Usuarios", :usuarios %></span></li>-->
 						<li><span><%= link_to current_usuario.nome, usuario_path(current_usuario, :view => "show") %></span></li>
 						<li><span><%= link_to "Sair", destroy_usuario_session_path, :method => :delete %></span></li>
